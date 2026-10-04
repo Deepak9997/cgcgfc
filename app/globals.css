@@ -1,0 +1,249 @@
+:root {
+  --bg: #0f0e0c;
+  --bg-2: #17150f;
+  --ink: #f4ead7;
+  --muted: #b7aa93;
+  --line: rgba(244, 234, 215, 0.12);
+  --accent: #e23d28;
+  --accent-2: #f0c27a;
+  --ok: #8fbf7a;
+  --danger: #ff7a6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(226, 61, 40, 0.18), transparent 55%),
+    radial-gradient(900px 400px at 100% 0%, rgba(240, 194, 122, 0.08), transparent 50%),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: var(--accent-2);
+}
+
+.shell {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 72px;
+}
+
+.kicker {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--accent-2);
+}
+
+h1 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(40px, 7vw, 72px);
+  line-height: 0.95;
+  margin: 12px 0 16px;
+}
+
+.lede {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0 0 36px;
+}
+
+.panel {
+  background: color-mix(in srgb, var(--bg-2) 88%, black);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+  background: #0c0b09;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  outline: none;
+}
+
+.row input:focus {
+  border-color: color-mix(in srgb, var(--accent-2) 70%, var(--line));
+}
+
+.row button,
+.mode,
+.download {
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.row button {
+  background: var(--accent);
+  color: white;
+  padding: 0 20px;
+  font-weight: 600;
+}
+
+.row button:disabled,
+.mode:disabled,
+.download:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.notice,
+.error,
+.banner {
+  margin-top: 14px;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.banner {
+  background: rgba(240, 194, 122, 0.1);
+  color: var(--accent-2);
+}
+
+.error {
+  background: rgba(226, 61, 40, 0.12);
+  color: var(--danger);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.meta img {
+  width: 160px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #000;
+}
+
+.meta h2 {
+  font-size: 20px;
+  margin: 0 0 6px;
+}
+
+.meta p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.mode {
+  text-align: left;
+  background: #10100c;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 16px;
+  min-height: 132px;
+}
+
+.mode strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.mode span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.mode:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
+}
+
+.progress-wrap {
+  margin-top: 20px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.bar {
+  height: 8px;
+  background: #2a261c;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.bar > i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  width: 0%;
+}
+
+.download {
+  display: inline-block;
+  margin-top: 16px;
+  background: var(--ok);
+  color: #10200a;
+  font-weight: 700;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+.legal {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .row,
+  .modes,
+  .meta {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .meta {
+    display: grid;
+  }
+}
